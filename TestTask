@@ -1,0 +1,20 @@
+ *** Settings***
+  Library Selenium2Library
+  Suite Setup Go to homepage
+  Suite Teardown Close All Browsers
+
+  *** Variables ***
+  ${HOMEPAGE} https://hotline.ua/
+  ${BROWSER} chrome
+  
+*** Test Cases ***
+  Google devops and find eficode
+     Google and check results   iPhone7   https://hotline.ua/mobile-mobilnye-telefony-i-smartfony/apple-iphone-7-32gb-black/
+
+  *** Keywords ***
+     [Arguments] ${searchkey}    ${result}
+    Input Text id=searchbox    ${searchkey}
+    Click Button id=doSearch
+    Click Link href=/mobile-mobilnye-telefony-i-smartfony/apple-iphone-7-32gb-black/
+    Wait Until Page Contains ${result}
+
